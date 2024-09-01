@@ -38,9 +38,17 @@ public abstract class Employee implements Worker {
 	public void setSalary(Double salary) {
 		this.salary = salary;
 	}
-	
-	public Double calculateAnnualBonus(String workerLevel, Double bonus) {
+
+	public Double calculateAnnualBonus(Double bonus) {
 		return salary + bonus;
 	}
-		
+	
+	@Override
+	public String toString() {
+		return name 
+				+", "
+				+id
+				+", "
+				+String.format("%.2f", salary);
+	}
 }
