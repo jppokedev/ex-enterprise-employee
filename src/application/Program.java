@@ -8,6 +8,7 @@ import model.entities.Enterprise;
 import model.entities.Manager;
 import model.entities.RegularEmployee;
 import model.entities.Trainee;
+import service.EmployeeFactory;
 
 public class Program {
 
@@ -20,7 +21,6 @@ public class Program {
 		char validation = 'y';
 		
 		System.out.println("Enter the employee data");
-		System.out.println();
 		
 		while(validation == 'y') {
 			System.out.print("What is the employee's position? (manager, regular or trainee): " );
@@ -33,18 +33,8 @@ public class Program {
 			System.out.print("Salary: ");
 			Double salary = sc.nextDouble();
 			
-			if(fun.contentEquals("manager")) {
-				Manager manager = new Manager(name, id, salary);
-				enterprise.getListEmployee().add(manager);
-				
-			}else if(fun.contentEquals("regular")) {
-				RegularEmployee regular = new RegularEmployee(name, id, salary);
-				enterprise.getListEmployee().add(regular);
-				
-			}else {
-				Trainee trainee = new Trainee(name, id, salary);
-				enterprise.getListEmployee().add(trainee);
-			}
+			Employee employee = EmployeeFactory.createEmployee(fun, name, id, salary);
+			enterprise.getListEmployee().add(employee);
 			
 			System.out.print("More employee to be added? (y/n) ");
 			validation = sc.next().charAt(0);
@@ -53,8 +43,13 @@ public class Program {
 		for(Employee employee : enterprise.getListEmployee()) {
 			System.out.println(employee);
 		}
-				
 		
+		System.out.print("The manager's annual bonus is: ");
+		System.out.print(enterprise.getManager());
+		System.out.println();
+		System.out.print("The annual bonus for regular employees is: ");
+		System.out.print(enterprise.getRegular());
+ 
 		sc.close();
 
 	}

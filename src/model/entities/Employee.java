@@ -1,6 +1,6 @@
 package model.entities;
 
-public abstract class Employee implements Worker {
+public abstract class Employee {
 	
 	private String name;
 	private Integer id;
@@ -39,10 +39,6 @@ public abstract class Employee implements Worker {
 		this.salary = salary;
 	}
 
-	public Double calculateAnnualBonus(Double bonus) {
-		return salary + bonus;
-	}
-	
 	@Override
 	public String toString() {
 		return name 
@@ -51,4 +47,5 @@ public abstract class Employee implements Worker {
 				+", "
 				+String.format("%.2f", salary);
 	}
+
 }

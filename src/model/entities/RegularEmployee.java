@@ -2,7 +2,7 @@ package model.entities;
 
 import java.time.LocalDateTime;
 
-public class RegularEmployee extends Employee {
+public class RegularEmployee extends Employee implements Worker {
 	
 	public RegularEmployee (String name, Integer id, Double salary) {
 		super(name, id, salary);
@@ -16,6 +16,11 @@ public class RegularEmployee extends Employee {
 	@Override
 	public LocalDateTime clockin() {
 		return null;
+	}
+
+	@Override
+	public Double calculateAnnualBonus() {
+		return super.getSalary() * 0.1;
 	}
 
 }
