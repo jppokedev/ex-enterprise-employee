@@ -1,12 +1,13 @@
 package model.entities;
 
-import java.time.LocalDateTime;
+import java.time.LocalTime;
 
 public interface Worker {
 	
 	Double calculateAnnualBonus();
 	
-	LocalDateTime clockOut();
-	LocalDateTime clockin();
+	LocalTime clockOut(LocalTime clockOut);
+	LocalTime clockIn(LocalTime clockIn);
+
 	
 }

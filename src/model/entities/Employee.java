@@ -1,6 +1,6 @@
 package model.entities;
 
-public abstract class Employee {
+public abstract class Employee implements Worker{
 	
 	private String name;
 	private Integer id;
@@ -41,10 +41,11 @@ public abstract class Employee {
 
 	@Override
 	public String toString() {
-		return name 
-				+", "
+		return "Name: " 
+				+name 
+				+", Id: "
 				+id
-				+", "
+				+", Salary: "
 				+String.format("%.2f", salary);
 	}
 
